@@ -81,22 +81,22 @@ int main(void)
   w = l / x;      // Compute mean residence or system time
 
   // Output results
-  printf("=============================================================== \n");
-  printf("=            *** Results from M/M/1 simulation ***            = \n");
-  printf("=============================================================== \n");
-  printf("=  Total simulated time         = %f sec     \n", time);
-  printf("=============================================================== \n");
-  printf("=  INPUTS:                                    \n");
-  printf("=    Mean time between arrivals = %f sec      \n", Ta);
-  printf("=    Mean service time          = %f sec      \n", Ts);
-  printf("=============================================================== \n");
-  printf("=  OUTPUTS:                                   \n");
-  printf("=    Number of completions      = %d cust     \n", c);
-  printf("=    Throughput rate            = %f cust/sec \n", x);
-  printf("=    Server utilization         = %f %%       \n", 100.0 * u);
-  printf("=    Mean number in system      = %f cust     \n", l);
-  printf("=    Mean residence time        = %f sec      \n", w);
-  printf("=============================================================== \n");
+  printf("\n");
+  printf("             *** Results from M/M/1 simulation ***             \n");
+  printf("----------------------------------------------------------------\n");
+  printf(" Total simulated time         = %f sec     \n", time);
+  printf("\n");
+  printf("  INPUTS:                                    \n");
+  printf("    Mean time between arrivals = %f sec      \n", Ta);
+  printf("   Mean service time          = %f sec      \n", Ts);
+  printf(" \n");
+  printf("  OUTPUTS:                                   \n");
+  printf("    Number of completions      = %d cust     \n", c);
+  printf("    Throughput rate            = %f cust/sec \n", x);
+  printf("    Server utilization         = %f %%       \n", 100.0 * u);
+  printf("    Mean number in system      = %f cust     \n", l);
+  printf("    Mean residence time        = %f sec      \n", w);
+  printf(" \n");
 
   return(0);
 }

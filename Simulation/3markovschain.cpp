@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include<ctype.h>
+
 
 // Function to generate a random number between 0 and RAND_MAX
 float random_number() {
@@ -22,14 +24,17 @@ int main() {
     float transition_probability; // Probability of transitioning to state 1 (rainy)
 
     srand(time(NULL)); // Initialize random seed based on current time
-
-    printf("Enter transition probability (between 0 and 1): ");
+    top:
+    printf("Enter transition probability (between 0 and 1):\n\n ");
     scanf("%f", &transition_probability);
 
     if (transition_probability < 0 || transition_probability > 1) {
-        printf("Error: Transition probability must be between 0 and 1.\n");
-        return 1;
+        printf("Error: Transition probability must be between 0 and 1.\n\n");
+        printf("Re-enter the probability:\n\n");
+            goto top;
     }
+
+
 
     printf("Simulating Markov Chain:\n");
     printf("If the random number is less than the transition probability the next day is Rainy \n else it's Sunny:\n");

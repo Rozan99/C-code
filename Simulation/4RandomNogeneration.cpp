@@ -1,106 +1,113 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-void mixedCongruentialMethod(int seed, int a, int c, int m){
-	//x(i) = ( a*x(i-1) + c ) mod m
-	int x =seed;
-	
-	cout<<endl<<"MIXED CONGRUENTIAL METHOD RANDOM NUMBER GENERATION: "<<endl<<endl;
-	
-	cout<<x<<" ";
-	for(int i = 0; i<100; i++){
-		x = ((a*x)+c)%m;
-		cout<<x<<" "; 
-	}
+// Function prototypes
+void midSquareMethod(int seed, int n);
+void multiplicativeCongruentialMethod(int seed, int a, int m);
+void mixedCongruentialMethod(int seed, int a, int c, int m);
+
+int main() {
+    int seed, a, c, m, choice, n;
+    char repeat;
+
+
+    cout << "Enter Seed: ";
+    cin >> seed;
+
+    cout << "Enter constant multiplier (a): ";
+    cin >> a;
+
+    cout << "Enter constant adder (c): ";
+    cin >> c;
+
+    cout << "Enter modulo (m): ";
+    cin >> m;
+
+    cout << "Enter the number of digits in the seed value (for Mid Square method): ";
+    cin >> n;
+top:
+    cout << "\nChoose a random number generation method:" << endl;
+    cout << "1. Mid Square Method" << endl;
+    cout << "2. Multiplicative Congruential Method" << endl;
+    cout << "3. Mixed Congruential Method" << endl;
+    cout << "4. Exit" << endl;
+    cout << "Enter your choice (1-4): ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            midSquareMethod(seed, n);
+            break;
+        case 2:
+            multiplicativeCongruentialMethod(seed, a, m);
+            break;
+        case 3:
+            mixedCongruentialMethod(seed, a, c, m);
+            break;
+        case 4:
+            cout << "Exiting program..." << endl;
+            return 0;
+        default:
+            cout << "Invalid choice. Please choose 1, 2, 3, or 4." << endl;
+            break;
+    }
+
+    cout << "\nDo you want to choose another random number generation method? (y/n): ";
+    cin >> repeat;
+
+    if (repeat == 'y' || repeat == 'Y') {
+        cout << endl;
+        goto top; // Jump to top label to choose again
+    }
+
+    cout << "Exiting program..." << endl;
+    return 0;
 }
 
-void multiplicativeCongruentialMethod(int seed, int a, int m){
-	//x(i) = (a*x(i-1))mod m
-	
-	int x = seed;
-	
-	cout<<endl<<"MULTIPLICATIVE CONGRUENTIAL METHOD RANDOM NUMBER GENERATION: "<<endl<<endl;
-	
-	cout<<x<<" ";
-	for(int i = 0; i<100; i++){
-		x = (a*x)%m;
-		cout<<x<<" ";
-	}
+// Mid Square Method
+void midSquareMethod(int seed, int n) {
+    // Using regular int to handle calculations
+    int x = seed;
+    int y;
+    int k = n / 2;
+
+    cout << "\nMID SQUARE METHOD RANDOM NUMBER GENERATION:" << endl << endl;
+
+    for (int i = 0; i < 100; i++) {
+        // Square the number
+        x = x * x;
+
+        // Extract middle n digits
+        y = (x / static_cast<int>(pow(10, k))) % static_cast<int>(pow(10, n));
+        cout << y << " ";
+    }
+    cout << endl;
 }
 
-int main(){
-	int seed, c, a, m;
-	
-	cout<<"Enter Seed: ";
-	cin>>seed;
+// Multiplicative Congruential Method
+void multiplicativeCongruentialMethod(int seed, int a, int m) {
+    int x = seed;
 
-	cout<<"Enter constant multiplier(a): ";
-	cin>>a;
-	
-	cout<<"Enter constant adder (c): ";
-	cin>>c;
-	
-	cout<<"Enter modulo (m): ";
-	cin>>m;
-	
-	mixedCongruentialMethod(seed, a, c, m);
-    printf("\n");
-	multiplicativeCongruentialMethod(seed, a, m);	
+    cout << "\nMULTIPLICATIVE CONGRUENTIAL METHOD RANDOM NUMBER GENERATION:" << endl << endl;
+
+    for (int i = 0; i < 100; i++) {
+        x = (a * x) % m;
+        cout << x << " ";
+    }
+    cout << endl;
 }
 
-// #include <stdio.h>
-// #include <math.h>
-// #include <stdlib.h>
-// unsigned long long int randm(int n);
-// unsigned long long int von(unsigned long long int x, int n);
- 
-// int main(void)
-// {
-//   unsigned long long int x, s;
-//   int n, i, r;
- 
-//   printf("Enter the number of digits in the seed value ");
-//   scanf("%d", &n);
- 
-//   printf("\nEnter the total number of random numbers to be generated "); 
-//   scanf("%d", &r);
- 
-//   if (n >= 12){
-//     printf("TOO LARGE!!");
-//     exit(0);
-//   }
- 
-//   x = randm(n);
-//   for(i = 0; i < r; i++){    
-//      s = von(x, n);
-//      x = s;
-//   printf("\nRandom Number generated: %lld\n", s);
-//   }
-//   return 0;
-// }
- 
- 
-// /*Generating Random Number of desired digit*/
- 
-// unsigned long long int randm(int n)
-// {
-//   double x;
-//   unsigned long long int y;
-//   srand(getpid());
-//   x = rand() / (double)RAND_MAX;
-//   y = (unsigned long long int) (x * pow(10.0, n*1.0));
-//   return y;
-// }
- 
- 
-// /*Calculating Random Number By Von Neumann Middle Square method*/
- 
-// unsigned long long int von(unsigned long long int x, int n)
-// {
-//   unsigned long long int y;
-//   int k;
-//   k = n / 2;
-//   y =(unsigned long long int)((x / pow(10.0, k * 1.0)) * x) % (unsigned long long int) (pow(10.0, n * 1.0));
-//   return y;
-// }
+// Mixed Congruential Method
+void mixedCongruentialMethod(int seed, int a, int c, int m) {
+    int x = seed;
+
+    cout << "\nMIXED CONGRUENTIAL METHOD RANDOM NUMBER GENERATION:" << endl << endl;
+
+    for (int i = 0; i < 100; i++) {
+        x = (a * x + c) % m;
+        cout << x << " ";
+    }
+    cout << endl;
+}

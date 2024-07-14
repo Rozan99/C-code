@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .feedback-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .rating-stars {
+        width: 50%;
+        padding: 20px;
+        border-right: 1px solid #ddd;
+      }
+
+      .rating-stars label {
+        font-size: 24px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .rating-stars input[type="radio"] {
+        display: none;
+      }
+
+      .rating-stars input[type="radio"]:checked + label {
+        color: #ffd700;
+      }
+
+      .feedback-inputs {
+        width: 50%;
+        padding: 20px;
+      }
+
+      .feedback-inputs label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .feedback-inputs input[type="text"],
+      .feedback-inputs textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .feedback-inputs textarea {
+        height: 100px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Share Your Feedback with Us!</h2>
+      <div class="feedback-container">
+        <div class="rating-stars">
+          <label for="rating"
+            >How would you rate your shopping experience?</label
+          >
+          <input type="radio" id="star-5" name="rating" value="5" />
+          <label for="star-5">&#x2605;</label>
+          <input type="radio" id="star-4" name="rating" value="4" />
+          <label for="star-4">&#x2605;</label>
+          <input type="radio" id="star-3" name="rating" value="3" />
+          <label for="star-3">&#x2605;</label>
+          <input type="radio" id="star-2" name="rating" value="2" />
+          <label for="star-2">&#x2605;</label>
+          <input type="radio" id="star-1" name="rating" value="1" />
+          <label for="star-1">&#x2605;</label>
+        </div>
+        <div class="feedback-inputs">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" /><br /><br />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" /><br /><br />
+          <label for="feedback">Your Feedback:</label>
+          <textarea id="feedback" name="feedback"></textarea><br /><br />
+        </div>
+      </div>
+      <input type="submit" value="Submit Feedback" />
+    </form>
+  </body>
+</html>

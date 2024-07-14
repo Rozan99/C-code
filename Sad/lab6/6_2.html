@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Program registration</title>
+    <style>
+      form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      section {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>University Program Registration</h2>
+      <section>
+        <h3>Personal Information</h3>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" /><br /><br />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" /><br /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" /><br /><br />
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" /><br /><br />
+      </section>
+      <section>
+        <h3>Academic Information</h3>
+        <label for="program">Program:</label>
+        <select id="program" name="program">
+          <option value="">Select a program</option>
+          <option value="Bachelor of Science in Computer Science">
+            Bachelor of Science in Computer Science
+          </option>
+          <option value="Bachelor of Arts in Business Administration">
+            Bachelor of Arts in Business Administration
+          </option>
+          <option value="Bachelor of Engineering in Mechanical Engineering">
+            Bachelor of Engineering in Mechanical Engineering
+          </option></select
+        ><br /><br />
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester">
+          <option value="">Select a semester</option>
+          <option value="Fall">Fall</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option></select
+        ><br /><br />
+      </section>
+      <section>
+        <h3>Additional Information</h3>
+        <label for="howDidYouHear">How did you hear about our program?</label>
+        <textarea id="howDidYouHear" name="howDidYouHear"></textarea
+        ><br /><br />
+      </section>
+      <input type="submit" value="Register" />
+    </form>
+  </body>
+</html>
